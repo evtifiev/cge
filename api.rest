@@ -1,0 +1,10 @@
+// Запрос на выбоку данных
+GET  https://regiz.gorzdrav.spb.ru/N3.BI/getDData?id=1078&args=2022-01-01,2022-01-31&auth=9f9208b9-f7e1-4e17-8cfc-a6832e03a12f
+
+
+## Запрос списка запросов
+GET  https://regiz.gorzdrav.spb.ru/N3.BI/listDataSets?&auth=9f9208b9-f7e1-4e17-8cfc-a6832e03a12f
+
+
+### Запрос адреса
+GET https://regiz.gorzdrav.spb.ru/N3.BI/getDData?id=1079&args=23d36e29-3d48-420f-9cbe-1e9972b6abc3,695c3be2-b72d-4a43-becd-f02d97ed3e41&auth=9f9208b9-f7e1-4e17-8cfc-a6832e03a12f
