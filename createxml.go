@@ -4,6 +4,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -134,6 +135,7 @@ func genFields() *Fields {
 }
 
 func createXML(patients []Patient) bool {
+	log.Println("Начинаю создавать xml ... ")
 	status := true
 	// Формируем файл xml
 	v := &Package{}

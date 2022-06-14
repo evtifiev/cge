@@ -63,7 +63,7 @@ func dbDisplayPatients(db *sql.DB) []Patient {
 }
 
 func dbInsertPatient(db *sql.DB, patient Patient) {
-	log.Println("Inserting patient record ... ", patient.GUID, "    ", patient.Gender)
+	log.Println("Добавляю в БД ИБ пациента ... ", patient.GUID)
 	insertPatientSQL := `INSERT INTO patients(
 		guid, luid, name, gender, age, address, date_poison, date_aff_first,
 		diagnosis, poisoning_desc, medical_help_name) 
@@ -103,7 +103,7 @@ func dbInsertPatient(db *sql.DB, patient Patient) {
 	}
 }
 func dbClearTablePatient(db *sql.DB) {
-	log.Println("Delete pacient record ...")
+	log.Println("Удаление данных о пациентах из БД...")
 	deletePatientsSQL := `DELETE FROM patients; VACUUM;`
 	statement, err := db.Prepare(deletePatientsSQL) // Prepare statement.
 	// This is good to avoid SQL injections

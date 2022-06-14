@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -71,8 +72,9 @@ func readJSONFromUrlAddress(guid string) (string, error) {
 	return address, nil
 }
 
-func getDataBI(db *sql.DB) {
-	url := "https://regiz.gorzdrav.spb.ru/N3.BI/getDData?id=1078&args=2022-01-01,2022-01-31&auth=9f9208b9-f7e1-4e17-8cfc-a6832e03a12f"
+func getDataBI(db *sql.DB, startDate string, endDate string) {
+	log.Println("Загружаю данные из BI")
+	url := fmt.Sprintf("https://regiz.gorzdrav.spb.ru/N3.BI/getDData?id=1078&args=%s,%s&auth=9f9208b9-f7e1-4e17-8cfc-a6832e03a12f", startDate, endDate)
 	jsonData, err := readJSONFromUrlPatient(url)
 	if err != nil {
 		panic(err)
@@ -89,4 +91,5 @@ func getDataBI(db *sql.DB) {
 		}
 		dbInsertPatient(db, patient)
 	}
+	fmt.Println("Данные загружены и записаны в БД")
 }
