@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"strconv"
 	"strings"
 )
 
@@ -150,10 +149,7 @@ func createXML(patients []Patient) bool {
 		r := R{}
 		r.V = append(r.V, V{F: "3", D: patient.Name})   // ФИО
 		r.V = append(r.V, V{F: "4", D: patient.Gender}) // Пол
-		age, _ := strconv.Atoi(patient.Age)
-		age *= 1000
-		ageStr := strconv.Itoa(age)
-		r.V = append(r.V, V{F: "5", D: ageStr})
+		r.V = append(r.V, V{F: "5", D: patient.Age})
 		r.V = append(r.V, V{F: "8", D: patient.Address})
 		r.V = append(r.V, V{F: "11", D: strings.ReplaceAll(patient.DatePoison, "-", "")})
 		r.V = append(r.V, V{F: "13", D: strings.ReplaceAll(patient.DateAffFirst, "-", "")})

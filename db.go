@@ -73,12 +73,8 @@ func dbInsertPatient(db *sql.DB, patient Patient) {
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
-	var age, gender int
-	if patient.Age == "" {
-		age = 0
-	} else {
-		age, _ = strconv.Atoi(patient.Age)
-	}
+	age := DateFormatXml(patient.BirthDate, patient.DateAffFirst)
+	var gender int
 	if patient.Gender == "" {
 		gender = 0
 	} else {

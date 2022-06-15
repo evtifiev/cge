@@ -16,6 +16,7 @@ type Patient struct {
 	Name            string `json:"name"`
 	Gender          string `json:"gender"`
 	Age             string `json:"age"`
+	BirthDate       string `json:"birthdate"`
 	Address         string `json:"address"`
 	DatePoison      string `json:"date_poison"`
 	DateAffFirst    string `json:"date_aff_first"`
